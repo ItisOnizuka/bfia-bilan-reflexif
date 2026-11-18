@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bilan réflexif BFIA : consignes</title>
+<style>
+  :root { --fond:#F7F3EC; --texte:#1E1C1A; --discret:#6B645C; --accent:#B0552B; --ligne:#DED6C9; --carte:#FFFDF9; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif; background:var(--fond); color:var(--texte); line-height:1.6; }
+  .page { max-width:820px; margin:0 auto; padding:48px 24px 80px; }
+  .marque { display:flex; justify-content:space-between; font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; color:var(--discret); border-bottom:1px solid var(--ligne); padding-bottom:12px; }
+  h1 { font-family:Georgia,serif; font-weight:400; font-size:clamp(1.9rem,4vw,2.8rem); line-height:1.1; margin:36px 0 18px; }
+  h2 { font-family:Georgia,serif; font-weight:400; font-size:1.4rem; margin:36px 0 10px; }
+  h3 { font-size:1rem; margin:24px 0 6px; }
+  p { margin-bottom:12px; }
+  .item { padding-left:18px; position:relative; margin-bottom:6px; }
+  .item::before { content:"·"; position:absolute; left:4px; color:var(--accent); }
+  pre { background:var(--carte); border:1px solid var(--ligne); padding:20px; white-space:pre-wrap; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.84rem; line-height:1.55; margin:16px 0 24px; }
+  .actions { margin-top:36px; display:flex; gap:12px; flex-wrap:wrap; }
+  .bouton { display:inline-block; padding:12px 20px; background:var(--texte); color:#fff; text-decoration:none; font-size:.9rem; border-radius:2px; }
+  .bouton.secondaire { background:transparent; color:var(--texte); border:1px solid var(--texte); }
+  .pied { margin-top:48px; border-top:1px solid var(--ligne); padding-top:18px; font-size:.8rem; color:var(--discret); }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="marque"><span>CREA · BFIA</span><span>Bilan réflexif</span></div>
+<h1>Bilan réflexif sur votre travail avec l’IA</h1>
+<p>**Brevet fédéral AI Business Specialist**</p>
+<p>Un bilan individuel à réaliser à la fin de chaque module, de M1 à M4.</p>
+<h2>Avant de commencer</h2>
+<p>Prenez d’abord quelques minutes pour réfléchir seul à votre expérience du module. Appuyez-vous sur vos notes, vos travaux et les situations dont vous vous souvenez. Vous pouvez utiliser l’IA pour organiser votre bilan, puis vous le relirez avant de le déposer.</p>
+<p>Pour le Module 1, pensez notamment à vos acquis, à vos difficultés, à l’évolution de votre méthode et à ce que vous pourriez transférer dans votre pratique. La matinée du 7 novembre a été réalisée sans IA : vous pouvez aussi réfléchir à ce que ce travail vous a apporté. Si ces notions vous sont utiles, revenez sur la discussion autour de l’antifragilité et de la dilution de l’effet IA, à partir d’un épisode du module ou d’un livrable.</p>
+<p>Ne transmettez pas à l’IA de données confidentielles, de documents non autorisés, de mots de passe ou d’informations personnelles concernant d’autres personnes. Décrivez les situations de manière anonyme. Vous n’avez pas besoin de partager l’intégralité de vos conversations.</p>
+<h2>Comment procéder</h2>
+<p class="item">1. Copiez le prompt ci-dessous dans l’IA de votre choix. Vous pouvez le coller dans une conversation utilisée pendant le module ou dans une nouvelle conversation.</p>
+<p class="item">2. Répondez à ses questions avec vos propres exemples, sans chercher à rédiger de longues réponses. L’IA ne connaît que les éléments accessibles dans l’échange et les documents que vous lui transmettez. Elle ne voit pas automatiquement vos autres conversations ou vos autres outils.</p>
+<p class="item">3. Si vous disposez de bilans de modules précédents, vous pouvez en fournir des extraits anonymisés pour comparer votre progression. Sinon, indiquez-le.</p>
+<p class="item">4. Vérifiez la reformulation proposée, demandez les corrections nécessaires, puis relisez le bilan final. Vous pouvez le corriger vous-même, notamment après la discussion collective.</p>
+<p class="item">5. Récupérez le fichier `.md` ou créez-le à partir du texte fourni par l’IA. Déposez-le sur Boostcamp selon les consignes de votre cours. Conservez une copie de chaque bilan pour les modules suivants.</p>
+<p>Ce bilan porte sur le module entier. Les éventuelles traces demandées pour chaque conversation restent distinctes : suivez les consignes communiquées pour votre cours.</p>
+<h2>Prompt à copier</h2>
+  <h2>Le prompt à copier</h2>
+  <pre>Vous allez m’aider à réaliser mon bilan réflexif individuel pour un module du Brevet fédéral AI Business Specialist. L’objectif est de comprendre ce que j’ai appris, comment j’ai travaillé avec ou sans IA, et ce que je souhaite améliorer. Nous pourrons reprendre cette démarche de M1 à M4.
+
+Règles de travail :
+- Basez-vous uniquement sur mes réponses, les échanges réellement accessibles dans cette conversation et les documents que je vous fournis. Vous n’avez pas automatiquement accès à mes autres conversations, outils ou travaux.
+- Distinguez ce que je déclare, ce qui apparaît dans l’échange accessible et ce qui figure dans un document transmis. Une déclaration de ma part n’est pas une preuve vérifiée indépendamment.
+- N’inventez ni expérience, usage de l’IA, compétence, citation, source, résultat, chiffre ou progression. Ne présentez pas vos interprétations comme des faits. Si un point manque, indiquez « Non précisé » ou « Non documenté ».
+- Ne supposez pas que j’ai utilisé l’IA pendant une activité réalisée sans IA. Si je n’ai pas utilisé d’IA pendant le module, acceptez cette réponse et aidez-moi à en expliquer les raisons ou les conséquences si je les connais.
+- Respectez mes mots et mon point de vue. Ne cherchez pas à rendre mon bilan artificiellement positif. J’ai le droit de signaler une difficulté, un désaccord ou l’absence de progrès.
+- Évitez les données personnelles inutiles et les informations confidentielles. Ne me demandez pas de copier l’intégralité de mes conversations.
+
+Commencez par me poser les questions suivantes dans un seul message. Attendez mes réponses avant de rédiger le bilan. Je peux répondre brièvement, indiquer que je ne sais pas ou laisser un point non renseigné.
+
+1. Quel module est concerné : M1, M2, M3 ou M4 ? Quelle est la date de ce bilan ? Quels outils d’IA avez-vous utilisés pendant ce module, si vous le savez ? Indiquez le produit et le modèle seulement s’ils vous sont connus.
+2. Quels sont jusqu’à trois acquis du module ? Pour chacun, donnez un exemple précis. Comment votre manière d’analyser ou de travailler a-t-elle évolué ? Vous pouvez évoquer une activité réalisée sans IA.
+3. Décrivez une situation concrète de travail avec une IA, si vous en avez une : quel était votre objectif, quelle tâche avez-vous confiée à l’IA et quelle consigne lui avez-vous donnée ? Si possible, reproduisez une phrase de votre consigne après anonymisation, ou indiquez que vous la reformulez. Qu’a proposé l’IA ? Qu’avez-vous gardé, modifié ou rejeté, et pourquoi ? Si vous n’avez pas utilisé d’IA, indiquez-le.
+4. Dans cette situation, qu’avez-vous vérifié, comment et à partir de quoi ? Quelle décision avez-vous prise vous-même ? Quel a été l’apport de l’IA, quelles ont été ses limites et quel résultat avez-vous réellement constaté ? Si vous n’avez pas vérifié ou ne connaissez pas le résultat, dites-le.
+5. Quelle difficulté ou question reste importante pour vous ? Que souhaitez-vous approfondir et par quelle action concrète ? Que pourriez-vous transférer dans votre pratique professionnelle ou votre projet d’examen, et quelle première vérification serait nécessaire ?
+6. Avez-vous des bilans de modules précédents ou des extraits anonymisés à partager ? Que remarquez-vous comme changement ou absence de changement dans vos consignes, vos vérifications, vos décisions et votre autonomie ? Sans bilan antérieur, vous pouvez décrire un souvenir en le signalant comme tel, ou indiquer que vous n’avez aucun élément de comparaison.
+
+Après mes réponses, proposez une courte reformulation des points essentiels et signalez les éléments manquants. Posez au maximum deux questions de précision si elles sont vraiment utiles. Demandez-moi ensuite si cette reformulation est fidèle et attendez ma réponse. Intégrez mes corrections avant de produire le bilan.
+
+Une fois ma réponse reçue, rédigez en français, à la première personne, un bilan clair et fidèle, sans remplir artificiellement les rubriques. Visez environ 300 à 600 mots si les éléments disponibles le permettent. Si mes réponses sont plus courtes, produisez un bilan plus court et indiquez ce qui manque. Utilisez exactement les rubriques suivantes :
+
+# Bilan réflexif IA - Module [numéro]
+
+- Date du bilan : [date fournie ou « Non précisée »]
+- Outils utilisés pendant le module : [produits et modèles déclarés, ou « Non précisé » ; indiquer « Aucun » si je l’ai déclaré]
+- Éléments disponibles pour ce bilan : [mes réponses, échange accessible et/ou documents transmis, selon le cas]
+
+## 1. Mes acquis et ma méthode
+
+Présentez jusqu’à trois acquis, chacun accompagné de l’exemple que j’ai donné. Précisez ce qui a changé dans ma méthode si je l’ai expliqué. Distinguez les activités avec et sans IA lorsque l’information est disponible.
+
+## 2. Une situation de travail avec l’IA
+
+Présentez, si elle existe, la situation que j’ai décrite : objectif et tâche, outil connu, consigne, réponse obtenue, apport et limite. Pour la consigne, distinguez une citation exacte d’une reformulation. Précisez si les éléments viennent de mes déclarations, de l’échange accessible ou d’un document transmis. Si je n’ai pas utilisé d’IA ou si aucune situation n’est documentée, indiquez-le clairement.
+
+## 3. Mes vérifications et mes décisions
+
+Indiquez ce que j’ai gardé, modifié ou rejeté, les vérifications réellement effectuées, la décision humaine et le résultat constaté. Signalez l’absence de vérification ou les résultats inconnus s’il y a lieu. Ne transformez pas un gain ressenti en gain mesuré.
+
+## 4. Mes difficultés et mes limites
+
+Présentez ma principale difficulté, ma question encore ouverte et, si je l’ai identifié, un risque ou une limite de mon travail avec l’IA.
+
+## 5. Ma prochaine action et le transfert
+
+Indiquez une action concrète pour progresser, une application possible dans ma pratique ou mon projet d’examen, et la première vérification à mener. Si je n’en ai pas proposé, indiquez « À préciser ».
+
+## 6. Mon évolution dans le parcours
+
+Pour M1, indiquez qu’il s’agit du point de départ du suivi, à partir des éléments disponibles. Pour M2, M3 ou M4, comparez avec un ou plusieurs bilans précédents seulement s’ils ont été fournis ou si j’en ai décrit le contenu. Précisez quels modules servent à la comparaison et distinguez mes déclarations des documents transmis. Signalez les bilans absents et ne concluez pas à une progression sans éléments de comparaison.
+
+Pour M4, si les éléments de plusieurs modules sont disponibles, ajoutez dans cette même rubrique une courte synthèse de mon évolution sur l’ensemble des modules effectivement documentés : changements, limites persistantes et question à poursuivre. N’inventez pas les étapes manquantes.
+
+## 7. Déclaration de préparation
+
+- Bilan mis en forme avec l’aide de : [outil déclaré ou « Non précisé »].
+- Contenu fondé sur les éléments mentionnés ci-dessus et à relire par l’étudiant avant le dépôt.
+- Validation de la version déposée : [à compléter par l’étudiant après relecture].
+
+Proposez le nom de fichier BFIA_M[numéro]_Bilan_reflexif.md. Si votre interface permet de créer et de joindre un vrai fichier texte Markdown, fournissez-le. Sinon, affichez l’intégralité du bilan dans un seul bloc de code Markdown, sans texte étranger au bilan à l’intérieur, pour que je puisse le copier dans un fichier .md. N’affirmez pas avoir créé un fichier téléchargeable si ce n’est pas le cas.
+</pre>
+  <div class="actions">
+    <a class="bouton secondaire" href="dashboard.html">Tableau de bord</a>
+    <a class="bouton secondaire" href="index.html">Magazine du Module 1</a>
+  </div>
+  <p class="pied">Abdellatif Hamoud · CREA / BFIA · consignes du bilan réflexif, Modules 1 à 4.</p>
+</div>
+</body>
+</html>

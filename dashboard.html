@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bilan réflexif BFIA, Module 1 : tableau de bord</title>
+<style>
+  :root {
+    --fond: #F7F3EC;
+    --texte: #1E1C1A;
+    --discret: #6B645C;
+    --accent: #B0552B;
+    --ligne: #DED6C9;
+    --carte: #FFFDF9;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    background: var(--fond);
+    color: var(--texte);
+    line-height: 1.55;
+  }
+  .page { max-width: 1080px; margin: 0 auto; padding: 48px 24px 80px; }
+  .marque {
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-size: .78rem; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--discret); border-bottom: 1px solid var(--ligne); padding-bottom: 12px;
+  }
+  h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    line-height: 1.05;
+    margin: 40px 0 12px;
+    font-weight: 400;
+  }
+  .chapeau { font-size: 1.05rem; color: var(--discret); max-width: 620px; margin-bottom: 36px; }
+  .chiffres { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--ligne); border: 1px solid var(--ligne); margin-bottom: 44px; }
+  .chiffre { background: var(--carte); padding: 26px 22px; }
+  .chiffre .valeur { font-family: Georgia, serif; font-size: 2.6rem; line-height: 1; }
+  .chiffre .libelle { font-size: .85rem; color: var(--discret); margin-top: 8px; }
+  h2 { font-family: Georgia, serif; font-weight: 400; font-size: 1.5rem; margin: 40px 0 8px; }
+  .note { font-size: .84rem; color: var(--discret); margin-bottom: 18px; }
+  .signaux { display: grid; gap: 14px; margin-bottom: 12px; }
+  .signal { display: grid; grid-template-columns: 1fr 120px; align-items: center; gap: 16px; }
+  .signal .nom { font-size: .95rem; }
+  .jauge { height: 8px; background: #E9E1D5; border-radius: 4px; overflow: hidden; }
+  .jauge span { display: block; height: 100%; background: var(--accent); }
+  .signal .valeur { font-size: .9rem; color: var(--discret); text-align: right; }
+  .grille { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--ligne); border: 1px solid var(--ligne); }
+  .besoin { background: var(--carte); padding: 18px 20px; display: flex; justify-content: space-between; gap: 16px; align-items: baseline; }
+  .besoin .n { font-family: Georgia, serif; font-size: 1.4rem; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 48px; }
+  .bouton {
+    display: inline-block; padding: 12px 20px; background: var(--texte); color: #fff;
+    text-decoration: none; font-size: .9rem; border-radius: 2px;
+  }
+  .bouton.secondaire { background: transparent; color: var(--texte); border: 1px solid var(--texte); }
+  .pied { margin-top: 56px; border-top: 1px solid var(--ligne); padding-top: 18px; font-size: .8rem; color: var(--discret); }
+  @media (max-width: 720px) {
+    .chiffres { grid-template-columns: 1fr; }
+    .grille { grid-template-columns: 1fr; }
+    .signal { grid-template-columns: 1fr 80px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="marque"><span>CREA · BFIA</span><span>Module 1 · 2026</span></div>
+
+  <h1>Bilan réflexif, Module 1</h1>
+  <p class="chapeau">Ce que les bilans individuels racontent sur la manière de questionner, vérifier et décider avec l'intelligence artificielle. Septembre à novembre 2026.</p>
+
+  <div class="chiffres">
+    <div class="chiffre"><div class="valeur">12</div><div class="libelle">bilans individuels de clôture</div></div>
+    <div class="chiffre"><div class="valeur">71</div><div class="libelle">fichiers déposés</div></div>
+    <div class="chiffre"><div class="valeur">6</div><div class="libelle">activités documentées</div></div>
+  </div>
+  <p class="note">Ces volumes ne donnent pas le nombre total de participants. Une personne peut remettre plusieurs travaux.</p>
+
+  <h2>Trois signaux à retenir</h2>
+  <p class="note">Nombre de dossiers où le thème est repéré, sur 12 bilans.</p>
+  <div class="signaux">
+    <div class="signal"><span class="nom">Analyse d'une organisation ou choix de projets</span><span class="jauge"><span style="width:83%"></span></span><span class="valeur">10 / 12</span></div>
+    <div class="signal"><span class="nom">Méthode RAG évoquée</span><span class="jauge"><span style="width:67%"></span></span><span class="valeur">8 / 12</span></div>
+    <div class="signal"><span class="nom">Contrôle d'une réponse décrit</span><span class="jauge"><span style="width:58%"></span></span><span class="valeur">7 / 12</span></div>
+  </div>
+  <p class="note">Un dossier peut apparaître dans plusieurs catégories. Ces chiffres comptent des mentions dans les bilans. Ils ne mesurent pas la maîtrise des compétences.</p>
+
+  <h2>Le réflexe qui compte</h2>
+  <p class="note">7 bilans sur 12 décrivent une relecture ou une vérification d'une réponse. Dans les 5 autres, le détail d'un contrôle reste à préciser.</p>
+
+  <h2>Les besoins formulés</h2>
+  <p class="note">Ce que les étudiants demandent pour la suite du parcours.</p>
+  <div class="grille">
+    <div class="besoin"><span>Outils, modèles, RAG ou cybersécurité</span><span class="n">7 / 12</span></div>
+    <div class="besoin"><span>Protection des données et règles d'usage</span><span class="n">6 / 12</span></div>
+    <div class="besoin"><span>Coût et retour sur investissement</span><span class="n">3 / 12</span></div>
+    <div class="besoin"><span>Qualité des réponses et des sources</span><span class="n">3 / 12</span></div>
+  </div>
+
+  <div class="actions">
+    <a class="bouton" href="index.html">Ouvrir le magazine</a>
+    <a class="bouton secondaire" href="consignes.html">Consignes du bilan réflexif</a>
+  </div>
+
+  <p class="pied">Abdellatif Hamoud · CREA / BFIA · Module 1, 2026. Les extraits cités proviennent des bilans individuels du 7 novembre 2026.</p>
+</div>
+</body>
+</html>
