@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Déposer un bilan réflexif</title>
+<style>
+  :root { --fond:#F7F3EC; --texte:#1E1C1A; --discret:#6B645C; --accent:#B0552B; --ligne:#DED6C9; --carte:#FFFDF9; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif; background:var(--fond); color:var(--texte); line-height:1.55; }
+  .page { max-width:680px; margin:0 auto; padding:48px 24px 80px; }
+  .marque { display:flex; justify-content:space-between; font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; color:var(--discret); border-bottom:1px solid var(--ligne); padding-bottom:12px; }
+  h1 { font-family:Georgia,serif; font-weight:400; font-size:2rem; margin:32px 0 8px; }
+  p.chapeau { color:var(--discret); margin-bottom:28px; }
+  label { display:block; font-size:.85rem; color:var(--discret); margin:18px 0 6px; }
+  input[type=text], input[type=email], select, textarea {
+    width:100%; padding:11px 12px; border:1px solid var(--ligne); background:var(--carte);
+    font:inherit; font-size:.93rem; color:var(--texte); border-radius:2px;
+  }
+  textarea { min-height:280px; resize:vertical; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.84rem; line-height:1.5; }
+  input[type=file] { font-size:.88rem; margin-top:6px; }
+  .actions { margin-top:26px; display:flex; gap:12px; flex-wrap:wrap; align-items:center; }
+  .bouton { padding:12px 20px; background:var(--texte); color:#fff; border:none; font:inherit; font-size:.9rem; border-radius:2px; cursor:pointer; }
+  .bouton.secondaire { background:transparent; color:var(--texte); border:1px solid var(--texte); }
+  .message { margin-top:16px; font-size:.9rem; }
+  .ok { color:#2F6B3A; }
+  .erreur { color:var(--accent); }
+  .pied { margin-top:44px; border-top:1px solid var(--ligne); padding-top:16px; font-size:.8rem; color:var(--discret); }
+  .compteur { float:right; font-size:.78rem; color:var(--discret); }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="marque"><span>CREA · BFIA</span><span>Bilan réflexif</span></div>
+
+  <h1>Déposer votre bilan</h1>
+  <p class="chapeau">Déposez le fichier <strong>.md</strong> de votre bilan, ou collez son texte. Il rejoint l'étude et met à jour le magazine.</p>
+
+  <form id="form-depot">
+    <label for="code">Code du module</label>
+    <input type="text" id="code" placeholder="BFIA-2026" autocomplete="off" required>
+
+    <label for="module">Module</label>
+    <select id="module">
+      <option value="M1">Module 1</option>
+      <option value="M2">Module 2</option>
+      <option value="M3">Module 3</option>
+      <option value="M4">Module 4</option>
+    </select>
+
+    <label for="nom">Prénom et nom</label>
+    <input type="text" id="nom" required>
+
+    <label for="email">Adresse email</label>
+    <input type="email" id="email" required>
+
+    <label for="fichier">Fichier .md (facultatif si vous collez le texte)</label>
+    <input type="file" id="fichier" accept=".md,.txt,text/markdown,text/plain">
+
+    <label for="contenu">Votre bilan<span class="compteur" id="compteur">0 caractère</span></label>
+    <textarea id="contenu" placeholder="Collez ici le texte de votre bilan réflexif."></textarea>
+
+    <div class="actions">
+      <button type="submit" class="bouton" id="envoyer">Déposer mon bilan</button>
+      <a class="bouton secondaire" href="index.html">Lire le magazine</a>
+    </div>
+    <p class="message" id="message"></p>
+  </form>
+
+  <p class="pied">Abdellatif Hamoud · CREA / BFIA. Votre bilan peut être anonymisé : seuls le module et le texte servent à l'étude.</p>
+</div>
+
+<script>
+(function () {
+  var URL_SUPABASE = "https://cmxfpetvpbtsxcjwdgri.supabase.co";
+  var CLE_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNteGZwZXR2cGJ0c3hjandkZ3JpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE3NjQ3NDcsImV4cCI6MjEwNzM0MDc0N30.zLkIRYh9i-57m9DHQekCH_a01lHreYDoz1FlD90ne4w";
+
+  var zone = document.getElementById("contenu");
+  var compteur = document.getElementById("compteur");
+  var fichier = document.getElementById("fichier");
+  var message = document.getElementById("message");
+
+  function majCompteur() {
+    var n = zone.value.length;
+    compteur.textContent = n + (n > 1 ? " caractères" : " caractère");
+  }
+  zone.addEventListener("input", majCompteur);
+  majCompteur();
+
+  fichier.addEventListener("change", function () {
+    var f = fichier.files && fichier.files[0];
+    if (!f) return;
+    var lecteur = new FileReader();
+    lecteur.onload = function () { zone.value = String(lecteur.result || ""); majCompteur(); };
+    lecteur.readAsText(f, "utf-8");
+  });
+
+  document.getElementById("form-depot").addEventListener("submit", async function (ev) {
+    ev.preventDefault();
+    message.className = "message";
+    message.textContent = "";
+    var bouton = document.getElementById("envoyer");
+    bouton.disabled = true;
+
+    try {
+      var res = await fetch(URL_SUPABASE + "/rest/v1/rpc/deposer_bilan", {
+        method: "POST",
+        headers: { apikey: CLE_ANON, Authorization: "Bearer " + CLE_ANON, "Content-Type": "application/json" },
+        body: JSON.stringify({
+          p_code: document.getElementById("code").value.trim(),
+          p_module: document.getElementById("module").value,
+          p_nom: document.getElementById("nom").value.trim(),
+          p_email: document.getElementById("email").value.trim(),
+          p_contenu: zone.value
+        })
+      });
+      var corps = await res.json().catch(function () { return {}; });
+      if (!res.ok) throw new Error(corps.message || "Dépôt refusé.");
+      message.className = "message ok";
+      message.textContent = "Bilan déposé. Merci, il est pris en compte dans l'étude.";
+      document.getElementById("form-depot").reset();
+      zone.value = "";
+      majCompteur();
+    } catch (e) {
+      message.className = "message erreur";
+      message.textContent = "Le dépôt n'a pas abouti. Vérifiez le code du module et réessayez.";
+    } finally {
+      bouton.disabled = false;
+    }
+  });
+})();
+</script>
+</body>
+</html>

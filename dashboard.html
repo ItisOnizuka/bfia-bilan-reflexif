@@ -33,8 +33,9 @@
     margin: 40px 0 12px;
     font-weight: 400;
   }
-  .chapeau { font-size: 1.05rem; color: var(--discret); max-width: 620px; margin-bottom: 36px; }
-  .chiffres { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--ligne); border: 1px solid var(--ligne); margin-bottom: 44px; }
+  .chapeau { font-size: 1.05rem; color: var(--discret); max-width: 620px; margin-bottom: 12px; }
+  .etat { font-size: .8rem; color: var(--discret); margin-bottom: 32px; }
+  .chiffres { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--ligne); border: 1px solid var(--ligne); margin-bottom: 16px; }
   .chiffre { background: var(--carte); padding: 26px 22px; }
   .chiffre .valeur { font-family: Georgia, serif; font-size: 2.6rem; line-height: 1; }
   .chiffre .libelle { font-size: .85rem; color: var(--discret); margin-top: 8px; }
@@ -69,41 +70,101 @@
 
   <h1>Bilan réflexif, Module 1</h1>
   <p class="chapeau">Ce que les bilans individuels racontent sur la manière de questionner, vérifier et décider avec l'intelligence artificielle. Septembre à novembre 2026.</p>
+  <p class="etat" id="etat">Édition 1, établie à partir des 12 bilans de clôture.</p>
 
   <div class="chiffres">
-    <div class="chiffre"><div class="valeur">12</div><div class="libelle">bilans individuels de clôture</div></div>
-    <div class="chiffre"><div class="valeur">71</div><div class="libelle">fichiers déposés</div></div>
-    <div class="chiffre"><div class="valeur">6</div><div class="libelle">activités documentées</div></div>
+    <div class="chiffre"><div class="valeur" id="c1">12</div><div class="libelle" id="l1">bilans individuels de clôture</div></div>
+    <div class="chiffre"><div class="valeur" id="c2">71</div><div class="libelle" id="l2">fichiers déposés</div></div>
+    <div class="chiffre"><div class="valeur" id="c3">6</div><div class="libelle" id="l3">activités documentées</div></div>
   </div>
   <p class="note">Ces volumes ne donnent pas le nombre total de participants. Une personne peut remettre plusieurs travaux.</p>
 
   <h2>Trois signaux à retenir</h2>
-  <p class="note">Nombre de dossiers où le thème est repéré, sur 12 bilans.</p>
+  <p class="note" id="note-signaux">Nombre de dossiers où le thème est repéré, sur 12 bilans.</p>
   <div class="signaux">
-    <div class="signal"><span class="nom">Analyse d'une organisation ou choix de projets</span><span class="jauge"><span style="width:83%"></span></span><span class="valeur">10 / 12</span></div>
-    <div class="signal"><span class="nom">Méthode RAG évoquée</span><span class="jauge"><span style="width:67%"></span></span><span class="valeur">8 / 12</span></div>
-    <div class="signal"><span class="nom">Contrôle d'une réponse décrit</span><span class="jauge"><span style="width:58%"></span></span><span class="valeur">7 / 12</span></div>
+    <div class="signal"><span class="nom">Analyse d'une organisation ou choix de projets</span><span class="jauge"><span id="j1" style="width:83%"></span></span><span class="valeur" id="v1">10 / 12</span></div>
+    <div class="signal"><span class="nom">Méthode RAG évoquée</span><span class="jauge"><span id="j2" style="width:67%"></span></span><span class="valeur" id="v2">8 / 12</span></div>
+    <div class="signal"><span class="nom">Contrôle d'une réponse décrit</span><span class="jauge"><span id="j3" style="width:58%"></span></span><span class="valeur" id="v3">7 / 12</span></div>
   </div>
   <p class="note">Un dossier peut apparaître dans plusieurs catégories. Ces chiffres comptent des mentions dans les bilans. Ils ne mesurent pas la maîtrise des compétences.</p>
 
   <h2>Le réflexe qui compte</h2>
-  <p class="note">7 bilans sur 12 décrivent une relecture ou une vérification d'une réponse. Dans les 5 autres, le détail d'un contrôle reste à préciser.</p>
+  <p class="note" id="note-reflexe">7 bilans sur 12 décrivent une relecture ou une vérification d'une réponse. Dans les 5 autres, le détail d'un contrôle reste à préciser.</p>
 
   <h2>Les besoins formulés</h2>
   <p class="note">Ce que les étudiants demandent pour la suite du parcours.</p>
   <div class="grille">
-    <div class="besoin"><span>Outils, modèles, RAG ou cybersécurité</span><span class="n">7 / 12</span></div>
-    <div class="besoin"><span>Protection des données et règles d'usage</span><span class="n">6 / 12</span></div>
-    <div class="besoin"><span>Coût et retour sur investissement</span><span class="n">3 / 12</span></div>
-    <div class="besoin"><span>Qualité des réponses et des sources</span><span class="n">3 / 12</span></div>
+    <div class="besoin"><span>Outils, modèles, RAG ou cybersécurité</span><span class="n" id="b1">7 / 12</span></div>
+    <div class="besoin"><span>Protection des données et règles d'usage</span><span class="n" id="b2">6 / 12</span></div>
+    <div class="besoin"><span>Coût et retour sur investissement</span><span class="n" id="b3">3 / 12</span></div>
+    <div class="besoin"><span>Qualité des réponses et des sources</span><span class="n" id="b4">3 / 12</span></div>
   </div>
 
   <div class="actions">
     <a class="bouton" href="index.html">Ouvrir le magazine</a>
-    <a class="bouton secondaire" href="consignes.html">Consignes du bilan réflexif</a>
+    <a class="bouton secondaire" href="depot.html">Déposer un bilan</a>
+    <a class="bouton secondaire" href="consignes.html">Consignes</a>
   </div>
 
   <p class="pied">Abdellatif Hamoud · CREA / BFIA · Module 1, 2026. Les extraits cités proviennent des bilans individuels du 7 novembre 2026.</p>
 </div>
+
+<script>
+(function () {
+  var URL_SUPABASE = "https://cmxfpetvpbtsxcjwdgri.supabase.co";
+  var CLE_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNteGZwZXR2cGJ0c3hjandkZ3JpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE3NjQ3NDcsImV4cCI6MjEwNzM0MDc0N30.zLkIRYh9i-57m9DHQekCH_a01lHreYDoz1FlD90ne4w";
+
+  function pourcent(n, total) {
+    if (!total) return 0;
+    return Math.max(2, Math.round((n / total) * 100));
+  }
+
+  fetch(URL_SUPABASE + "/rest/v1/rpc/stats_bilans", {
+    method: "POST",
+    headers: { apikey: CLE_ANON, Authorization: "Bearer " + CLE_ANON, "Content-Type": "application/json" },
+    body: "{}"
+  }).then(function (r) { return r.json(); }).then(function (s) {
+    if (!s || !s.total) return;
+    var total = Number(s.total);
+    var themes = s.themes || {};
+
+    document.getElementById("c1").textContent = String(total);
+    document.getElementById("l1").textContent = "bilans déposés";
+    document.getElementById("c2").textContent = String(Object.keys(s.modules || {}).length);
+    document.getElementById("l2").textContent = "modules couverts";
+    var date = s.derniere_depose ? new Date(s.derniere_depose) : null;
+    document.getElementById("c3").textContent = date
+      ? date.toLocaleDateString("fr-FR", { day: "numeric", month: "short" })
+      : "-";
+    document.getElementById("l3").textContent = "dernier dépôt";
+    document.getElementById("etat").textContent =
+      "Mise à jour automatique, " + total + " bilan" + (total > 1 ? "s" : "") + " en base au " +
+      new Date().toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" }) + ".";
+
+    var signaux = [
+      ["organisation", "j1", "v1"],
+      ["rag", "j2", "v2"],
+      ["controle", "j3", "v3"]
+    ];
+    signaux.forEach(function (t) {
+      var n = Number(themes[t[0]] || 0);
+      document.getElementById(t[1]).style.width = pourcent(n, total) + "%";
+      document.getElementById(t[2]).textContent = n + " / " + total;
+    });
+    document.getElementById("note-signaux").textContent =
+      "Nombre de bilans où le thème est repéré, par comptage automatique sur " + total + " bilans.";
+
+    var normaux = Number(themes.controle || 0);
+    document.getElementById("note-reflexe").textContent =
+      normaux + " bilan" + (normaux > 1 ? "s" : "") + " sur " + total +
+      " décrivent une relecture ou une vérification. Le comptage est automatique, il donne une tendance.";
+
+    document.getElementById("b1").textContent = Number(themes.rag || 0) + " / " + total;
+    document.getElementById("b2").textContent = Number(themes.donnees || 0) + " / " + total;
+    document.getElementById("b3").textContent = Number(themes.cout || 0) + " / " + total;
+    document.getElementById("b4").textContent = Number(themes.qualite || 0) + " / " + total;
+  }).catch(function () { /* on garde l'edition 1 */ });
+})();
+</script>
 </body>
 </html>
